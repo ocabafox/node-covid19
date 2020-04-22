@@ -1,0 +1,79 @@
+<section class="container">
+	<div class="columns is-multiline is-mobile is-centered">
+		<nav class="pagination" role="navigation" aria-label="pagination">
+			{{#if data.hasPreviousPage}}
+			<a class="pagination-previous" href="/countries?page={{data.previousPage}}">Previous</a>
+			{{/if}}
+			{{#if data.hasNextPage}}
+			<a class="pagination-next" href="/countries?page={{data.nextPage}}">Next page</a>
+			{{/if}}
+			<ul class="pagination-list">
+				{{#if data.hideFirst}}
+				<li>
+					<a class="pagination-link" href="/countries?page=1" aria-label="Goto page 45">1</a>
+				</li>
+				{{/if}}
+				{{#if pageLessThatFive}}
+				<li>
+					<span class="pagination-ellipsis">&hellip;</span>
+				</li>
+				{{/if}}
+				{{#if data.hasPreviousPage}}
+				<li>
+					<a class="pagination-link" href="/countries?page={{data.previousPage}}" aria-label="Goto page 45">{{data.previousPage}}</a>
+				</li>
+				{{/if}}
+				<li>
+					<a class="pagination-link is-current" aria-label="Page 46" aria-current="page">{{data.country.data.paginationMeta.currentPage}}</a>
+				</li>
+				{{#if data.hasNextPage}}
+				<li>
+					<a class="pagination-link" href="/countries?page={{data.nextPage}}" aria-label="Goto page 47">{{data.nextPage}}</a>
+				</li>
+				<li>
+					<span class="pagination-ellipsis">&hellip;</span>
+				</li>
+				<li>
+					<a class="pagination-link" href="/countries?page={{data.country.data.paginationMeta.totalPages}}" aria-label="Goto page 86">{{data.country.data.paginationMeta.totalPages}}</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		<table class="table is-hoverable">
+      <thead>
+        <tr>
+          <th>Flag</th>
+          <th>Country</th>
+          <th>Total Cases</th>
+					<th>New Cases</th>
+          <th>Total Deaths</th>
+          <th>New Deaths</th>
+          <th>Total Recovered</th>
+          <th>Active Cases</th>
+          <th>Serious Critical</th>
+          <th>Cases Per Millions</th>
+				</tr>
+      </thead>
+      <tbody>
+				{{#each data.country.data.rows}}
+        <tr>
+					<td>
+						<figure class="image is-48x48">
+							<img src="{{flag}}">
+						</figure>
+					</td>
+					<td>{{country}}</td>
+						<td>{{total_cases}}</td>
+						<td>{{new_cases}}</td>
+						<td>{{total_deaths}}</td>
+						<td>{{new_deaths}}</td>
+						<td>{{total_recovered}}</td>
+						<td>{{active_cases}}</td>
+						<td>{{serious_critical}}</td>
+						<td>{{cases_per_mill_pop}}</td>
+        </tr>
+				{{/each}}
+      </tbody>
+    </table>
+	</div>
+</section>

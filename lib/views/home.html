@@ -1,0 +1,68 @@
+<section class="container">
+	<div class="columns">
+		<div class="column">
+			<div class="ls-section-content has-text-centered">
+				<h5 class="title is-5">Top COVID-19 Cases</h5>
+				<h6 class="subtitle is-6">The coronavirus COVID-19 is affecting 210 countries and territories around the world.</h6>
+			</div>
+		</div>
+	</div>
+	<div class="columns is-multiline is-mobile">
+		{{#each data.general.data.rows}}
+		<div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+			<div class="card is-shady" style="width: 100%;">
+				<div class="card-image has-text-centered">
+					<figure class="image is-5by3">
+						<img src="{{flag}}">
+					</figure>
+				</div>
+				<div class="card-content is-paddingless">
+					<div class="content">
+						<h4>{{country}}</h4>
+
+						<table class="table is-fullwidth">
+							<thead>
+								<tr>
+									<th>Category</th>
+									<th>Numbers</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Total Cases</td>
+									<td>{{total_cases}}</td>
+								</tr>
+								<tr>
+									<td>New Cases</td>
+									<td>{{new_cases}}</td>
+								</tr>
+								<tr>
+									<td>Total Deaths</td>
+									<td>{{total_deaths}}</td>
+								</tr>
+								<tr>
+									<td>Total Recovered</td>
+									<td>{{total_recovered}}</td>
+								</tr>
+								<tr>
+									<td>Active Cases</td>
+									<td>{{active_cases}}</td>
+								</tr>
+								<tr>
+									<td>Serious Critical</td>
+									<td>{{serious_critical}}</td>
+								</tr>
+								<tr>
+									<td>Cases Per Million</td>
+									<td>{{cases_per_mill_pop}}</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+</section>
